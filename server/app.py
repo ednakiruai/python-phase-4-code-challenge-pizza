@@ -42,7 +42,7 @@ def restaurants():
     
 @app.route('/restaurants/<int:id>', methods=['GET'])
 def get_restaurants_id(id):
-    restaurant = Restaurant.query.get(id)
+    restaurant = Restaurant.query.filter(Restaurant.id == id).first()
     if restaurant:
        restaurant_dict = {
             'id': restaurant.id,
